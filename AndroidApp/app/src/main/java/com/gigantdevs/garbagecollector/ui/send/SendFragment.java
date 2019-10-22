@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.gigantdevs.garbagecollector.MyRecyclerViewAdapter;
 import com.gigantdevs.garbagecollector.R;
 
 public class SendFragment extends Fragment {

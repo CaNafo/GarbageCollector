@@ -13,4 +13,5 @@
     <string name="menu_tools">Pregled prijava drugih korisnika</string>
     <string name="menu_share">Nešto</string>
     <string name="menu_send">Nešto još</string>
+    <string name="title_activity_test">Test</string>
 </resources>
