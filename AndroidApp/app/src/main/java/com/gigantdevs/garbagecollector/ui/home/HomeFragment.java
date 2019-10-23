@@ -56,11 +56,10 @@ public class HomeFragment extends Fragment implements MyRecyclerViewAdapter.Item
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+
             }
         });
 
@@ -80,29 +79,31 @@ public class HomeFragment extends Fragment implements MyRecyclerViewAdapter.Item
         call.enqueue(new Callback<List<Prijava>>() {
             @Override
             public void onResponse(Call<List<Prijava>> call, Response<List<Prijava>> response) {
-                List<Prijava> temp = response.body();
-                prijave = new ArrayList<>();
-                for(int i=0;i<temp.size();i++){
-                    prijave.add(temp.get(i));
+                if(response.code() == 200){
+                    List<Prijava> temp = response.body();
+                    prijave = new ArrayList<>();
+                    for(int i=0;i<temp.size();i++){
+                        prijave.add(temp.get(i));
+                    }
+
+                    RecyclerView recyclerView = view.getRootView().findViewById(R.id.odobreno);
+                    recyclerView.setLayoutManager(new
+
+                            LinearLayoutManager(view.getContext()));
+                    adapter =new
+
+                            MyRecyclerViewAdapter(getContext(),prijave);
+                    adapter.setClickListener(HomeFragment.this);
+                    recyclerView.setAdapter(adapter);
+
+                    SharedPreferences appSharedPrefs = PreferenceManager
+                            .getDefaultSharedPreferences(view.getContext());
+                    SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+                    Gson gson = new Gson();
+                    String json = gson.toJson(prijave);
+                    prefsEditor.putString("MyObject", json);
+                    prefsEditor.commit();
                 }
-
-                RecyclerView recyclerView = view.getRootView().findViewById(R.id.odobreno);
-                recyclerView.setLayoutManager(new
-
-                        LinearLayoutManager(view.getContext()));
-                adapter =new
-
-                        MyRecyclerViewAdapter(getContext(),prijave);
-                adapter.setClickListener(HomeFragment.this);
-                recyclerView.setAdapter(adapter);
-
-                SharedPreferences appSharedPrefs = PreferenceManager
-                        .getDefaultSharedPreferences(view.getContext());
-                SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
-                Gson gson = new Gson();
-                String json = gson.toJson(prijave);
-                prefsEditor.putString("MyObject", json);
-                prefsEditor.commit();
             }
 
             @Override

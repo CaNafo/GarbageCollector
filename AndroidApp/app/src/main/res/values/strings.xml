@@ -2,16 +2,13 @@
     <string name="app_name">Garbage Collector</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">CleanSa</string>
+    <string name="nav_header_subtitle"></string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Početna</string>
+    <string name="menu_home">Pregled mojih prijava</string>
     <string name="menu_gallery">Prijavi</string>
-    <string name="menu_slideshow">Objavi razmjenu</string>
-    <string name="menu_tools">Pregled prijava drugih korisnika</string>
-    <string name="menu_share">Nešto</string>
-    <string name="menu_send">Nešto još</string>
-    <string name="title_activity_test">Test</string>
+    <string name="menu_slideshow">Pregled prijava ostalih građana</string>
+    <string name="menu_send">O nama</string>
 </resources>

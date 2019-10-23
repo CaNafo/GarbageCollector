@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface GetDataService {
-    @POST("getmojeprijave.php")
+    @POST("getMojePrijave.php")
     Call<List<Prijava>> getAllMojePrijave();
 }

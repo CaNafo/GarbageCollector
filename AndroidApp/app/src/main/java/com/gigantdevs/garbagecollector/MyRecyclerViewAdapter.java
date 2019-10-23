@@ -25,14 +25,23 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
+        final View view;
         if(mData.get(i).getStatus()==1){
              view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
         }else if(mData.get(i).getStatus()==0){
              view = mInflater.inflate(R.layout.recyclerview_row_orange, parent, false);
-        }else{
+        }else if(mData.get(i).getStatus()==2){
              view = mInflater.inflate(R.layout.recyclerview_row_red, parent, false);
+        }else {
+            view = mInflater.inflate(R.layout.recyclerview_row_pregled, parent, false);
+            view.findViewById(R.id.dugme).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    view.findViewById(R.id.dugme).setBackgroundResource(R.drawable.filledstar);
+                }
+            });
         }
+
         i++;
 
         return new ViewHolder(view);
