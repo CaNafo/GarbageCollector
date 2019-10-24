@@ -28,7 +28,8 @@ public class SendFragment extends Fragment {
         sendViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                textView.setText("Hackaton Za čisto Sarajevo\n" +
+                        "Problem neadekvatnog odlaganja otpada je prvenstveno uzrokovano nedostatkom kolektivne svijesti i edukacije. Također, prenatrpanost kontejnera uzrokuje odlaganje otpada na nepredviđena mjesta što dodatno otežava već nedovoljno održiv sistem prikupljanja otpada. Naš tim - CleanSa je došao do sljedećeg rješenja koje će dovesti do efikasnog načina prikupljanja otpada i aktivnog učešća građana u istom. Sistem se sastoji od modifikovanog smart kontejnera, aplikacije za komunalno preduzeće i građane (proizvođače otpada).");
             }
         });
         return root;
